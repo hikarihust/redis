@@ -1,0 +1,16 @@
+Installing Redis in Ubuntu
+    https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-redis-on-ubuntu-18-04
+    Installing and Configuring Redis
+        sudo apt update
+        sudo apt install redis-server
+        sudo vi /etc/redis/redis.conf
+            supervised systemd
+        sudo systemctl restart redis.service
+    Testing Redis
+        sudo systemctl status redis
+        redis-cli
+        127.0.0.1:6379> ping
+        set test "It's working!"
+    exit 
+        to back ubuntu user 
+    
