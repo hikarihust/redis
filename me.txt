@@ -49,4 +49,26 @@ Working with Keys in Redis
         Set time for exist key in milli second
             set 1 "hello"
             pexpire 1 100000
+Pattern Matching with Keys
+    set hello 1
+    get hello
+    set hallo 2
+    set hrllo 2
+    set heello 2
+    set hijllo 2
+    keys h?llo
+        1) "hallo"
+        2) "hrllo"
+        3) "hello
+    keys h*llo
+        1) "hallo"
+        2) "heello"
+        3) "hrllo"
+        4) "hijllo"
+        5) "hello"
+    keys h[ae]llo
+    keys h[^e]llo
+    keys h[e-r]llo
+    keys *ll*
+    keys h????
     
