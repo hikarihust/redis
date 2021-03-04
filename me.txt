@@ -71,4 +71,10 @@ Pattern Matching with Keys
     keys h[e-r]llo
     keys *ll*
     keys h????
+Understanding Shutdown Command
+    Setting some keys, and then shutdown affect those keys
+    set 1 hello
+    set 2 bye 
+    shutdown save 
+    shutdown nosave
     
