@@ -14,3 +14,39 @@ Installing Redis in Ubuntu
     exit 
         to back ubuntu user 
     
+    ====================================================================
+
+                Introduction to Keys in Redis
+
+Working with Keys in Redis
+    sudo systemctl status redis
+    redis-cli
+    set 1 "hello"
+    get 1
+    del 1
+    set 1 "hello"
+    set 2 "name"
+    del 1 2
+    To check key exist or not: exists
+        exists 1
+    Check multi key 
+        EXISTS 1 2 name
+    Using expire, can expire a key within with some period of time
+        set a "hello" EX 10
+            EX by second 
+        ttl a
+            check a key expire
+            ttl is time to live command, we can get how many seconds are left for key
+            If key is dead or key is removed then we will get minus 2
+            If key exist but there is no expiration on that key then we will get minus 1
+        set 1 "hello"
+        then we can set expiration for 1 key by command
+        Expire 1 20
+        Expire a key in milli seconds
+            set 1 "hello" PX 100
+        Check time in milli seconds
+            pttl 1
+        Set time for exist key in milli second
+            set 1 "hello"
+            pexpire 1 100000
+    
