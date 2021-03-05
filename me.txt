@@ -148,4 +148,18 @@ Getting Started with Strings
         set num 1.0 (type is string)
         incrbyfloat num 1.0
             -> num will have value is 2
+Different Ways to work with String
+    getset: This command we can set new value like set command, the special of this command is when
+        we set a new value to a key then the value stored at that key previously will be returned as output.
+        It means this command we can see what was the previous value of that key
+        set 1 hello
+        getset 1 bye
+    If getset give a key name which is not existed in the database, we will get "nil" in output
+        getset 2 hello
+    mset: Can set multiple keys at same time
+        mset 1 h 2 g 3 e
+    mget: retrieve value from the multiple keys 
+        mget 1 2 3
+    msetnx: key must not exist in the database to create new key
+        msetnx 5 hello 6 bye
     
