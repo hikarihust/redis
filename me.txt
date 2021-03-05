@@ -245,4 +245,8 @@ More on Hashes Commands
         by the specified increment.
         HINCRBYFLOAT can use to increment any type of number like integer or float
     HSTRLEN: Returns the string length of the value associated with field in the hash stored at key.
-    
+
+    ====================================================================
+
+                Sets in Redis
+
