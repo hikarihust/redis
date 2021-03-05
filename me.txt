@@ -183,4 +183,7 @@ Wrapping up String Section
     strlen: Return string length
         strlen k1
             -> return 11
-    
+
+    ====================================================================
+
+                List in Redis
