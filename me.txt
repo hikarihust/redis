@@ -198,4 +198,15 @@ Working with List in Redis
     lpushx: Inserts value at the head of the list stored at key, only if key already exists and holds a list.
     rpop: Removes and returns the last element of the list stored at key(Delete element from the right of list)
     lpop: Removes and returns the first element of the list stored at key
+Wrapping up List Commands
+    ltrim: Trim an existing list so that it will contain only the specified range of elements specified
+        The range we provided will be kept, and all other elements will be deleted from list.
+    lset: Sets the list value at index to value.
+    lindex: Returns the value at index in the list stored at key.
+    linsert: Inserts value in the list stored at key either before or after pivot(pivot is the reference value)
+    llen: Returns the length of the list stored at key. 
+    lrem: Removes the first count occurrences of elements equal to value from the list stored at key.(delete count times if having equal to value)
+        count > 0: Remove elements equal to value moving from head to tail 
+        count < 0: Remove elements equal to value moving from tail to head
+        count = 0: Remove all elements equal to value.
     

@@ -1,0 +1,37 @@
+rpush fruit watermelon
+rpush fruit banana
+rpush fruit mango
+lrange fruit 0 -1
+
+lpush fruit peach grape 
+ltrim fruit 1 -2
+
+lpush fruit mango grape
+lrange fruit 0 -1
+ltrim fruit 0 3
+
+ltrim fruit 0 1
+lrange fruit 0 -1
+
+
+lset fruit 0 banana
+lset fruit -1 banana
+lset fruit 0 mango
+
+
+lindex fruit 0
+
+
+linsert fruit before mango peach
+linsert fruit after banana grape
+
+
+lrem fruit 1 mango
+lpush fruit mango mango mango
+lrem fruit 2 mango
+rpush fruit mango mango mango
+lrem fruit 2 mango
+lpush fruit mango mango mango
+lrem fruit -4 mango
+lpush fruit mango mango mango
+lrem fruit 0 mango
