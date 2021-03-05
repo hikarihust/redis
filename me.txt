@@ -282,4 +282,7 @@ Operation on Sets Commands
     SUNION: Returns the members of the set resulting from the union of all the given sets.
     SUNIONSTORE: This command is equal to SUNION, but instead of returning the resulting set, it is stored in destination.
     SRANDMEMBER: When called with just the key argument, return a random element from the set value stored at key.
-    
+
+    ====================================================================
+
+                Sorted Sets in Redis
