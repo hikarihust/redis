@@ -209,4 +209,7 @@ Wrapping up List Commands
         count > 0: Remove elements equal to value moving from head to tail 
         count < 0: Remove elements equal to value moving from tail to head
         count = 0: Remove all elements equal to value.
-    
+
+    ====================================================================
+
+                Hashes in Redis
