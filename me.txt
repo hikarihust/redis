@@ -162,4 +162,25 @@ Different Ways to work with String
         mget 1 2 3
     msetnx: key must not exist in the database to create new key
         msetnx 5 hello 6 bye
+Wrapping up String Section
+    getrange: Use to extract a substring from a string
+        set name samsung
+        getrange name 0 3
+            -> "sams"
+    getrange can get range start from last character with minus
+        getrange name 0 -1
+            -> "samsung"
+        getrange name -3 -2
+    setex: create a key and we can set expiry of it
+        setex a 5 hello
+        keys *
+    psetex: Can set expiry of key in millisecond
+    setrange: We can overwrite a part of string
+        set k1 "Hello World"
+        setrange k1 6 Redis
+        get k1
+            -> will get Hello Redis
+    strlen: Return string length
+        strlen k1
+            -> return 11
     
