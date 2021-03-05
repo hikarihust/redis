@@ -94,4 +94,17 @@ Some more commands
             eat our performance and can slow our Redis database
     type: check what type of value is stored in key
         type lname
-        
+Dump & Restore in Redis
+    dump: Use to take backup of our data stored in key, accidentally our data is deleted we can store that data
+        set name "Bob"
+        dump name
+        del name
+        restore name 0 "\x00\x03Bob\b\x00\x12\x8a\xfbJ\xdf/\xc4\t"
+    If restore key while target key name already exist, we can use "replace" option
+        restore name 0 "\x00\x03Bob\b\x00\x12\x8a\xfbJ\xdf/\xc4\t" replace
+    Restore "name" key of value as new name is "fname"
+        set fname "abc"
+        restore fname 0 "\x00\x03Bob\b\x00\x12\x8a\xfbJ\xdf/\xc4\t" replace
+        get fname
+            -> "Bob"
+    
