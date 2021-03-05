@@ -1,0 +1,25 @@
+zadd students 1 Rob 2 John 3 Smith
+ZRANGE students 0 -1
+ZRANGE students 0 -1 WITHSCORES
+
+zadd students nx 4 Andrew
+zadd students nx 5 Andrew
+ZRANGE students 0 -1 WITHSCORES
+
+zadd students 5 Andrew
+ZRANGE students 0 -1 WITHSCORES
+
+zadd students nx 5 Andrew1
+ZRANGE students 0 -1 WITHSCORES
+zadd students 5 Max
+ZRANGE students 0 -1 WITHSCORES
+
+zadd name 1 Rob 1 Bob 1 Andrew 1 Max
+ZRANGE name 0 -1
+
+zadd name ch 0 Alex 2 Arthur
+ZRANGE students 0 -1 WITHSCORES
+
+
+zadd name incr 2 Bob
+ZRANGE students 0 -1 WITHSCORES

@@ -294,4 +294,23 @@ Introduction to Sorted Sets
     Sorted sets elements are ordered
     Every element in a sorted set is associated with a floating point value, called the score(this is why the type is also
         similar to hash, since every element is mapped to value)
+Working with zadd command
+    ZADD: Create a new set or can add elements to existing sorted set.
+        zadd key [NX|XX] [CH] [INCR] score member [score member ...]
+        score can only be a floating point it can not be possible that we can assign string that will be not possible
+        https://redis.io/commands/zadd  Refer this link to know more.
+        Try: zadd students one Bob
+            -> error Because score can not be string
+        NX: This option we tell Redis that we do not want to update any existing elements what we want to do is we want to
+            always add new elements to our sorted set
+            zadd students nx 4 Andrew
+            zadd students nx 5 Andrew -> can not update, it can update if not use "nx" option
+        We can add many values on a particular score, ordered in alphabetical
+        XX: Only update elements that already exist. Never add elements
+        CH: Return an integer reply and that integer reply will tell us that how many elements have been changed using zadd 
+            command
+        INCR: Can increment value of score
+            zadd name incr 2 Bob
+                score of Bob will be increment 2 
+    ZRANGE: Returns the specified range of elements in the sorted set stored at key.
     
