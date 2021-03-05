@@ -213,3 +213,8 @@ Wrapping up List Commands
     ====================================================================
 
                 Hashes in Redis
+
+Hashes Introduction
+    Redis Hashes are maps between string fields and string values
+    They are the perfect data type to represent objects(e.g: a user with number of field like name, surname, age)
+    
