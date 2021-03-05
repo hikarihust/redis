@@ -250,3 +250,9 @@ More on Hashes Commands
 
                 Sets in Redis
 
+About Sets in Redis
+    Redis Sets are an unordered collection of string
+    It is possible to add, remove, and test for existence of members 
+    O(1) constant time regardless of the number of elements contained inside the Set 
+    Can do unions, intersections, difference of sets in very short time
+    
