@@ -1,0 +1,25 @@
+sadd party Smith Greg Rob 
+sadd picnic Bob John Rob
+sdiff party picnic
+sdiff picnic party
+
+
+SDIFFSTORE operate party picnic
+SMEMBERS operate
+
+
+SINTER party picnic
+
+
+SINTERSTORE operate1 party picnic
+SMEMBERS operate1
+
+
+SUNION party picnic
+
+
+SUNIONSTORE operate party picnic
+SMEMBERS operate
+
+
+SRANDMEMBER picnic

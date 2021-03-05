@@ -274,4 +274,12 @@ Operation on Sets
         have in common
     Union of Sets: The union of two sets A and B is the set of elements which are in A, in B or in both 
         A and B 
+Operation on Sets Commands
+    SDIFF: Returns the members of the set resulting from the difference between the first set and all the successive sets.
+    SDIFFSTORE: This command is equal to SDIFF, but instead of returning the resulting set, it is stored in destination.
+    SINTER: Returns the members of the set resulting from the intersection of all the given sets.
+    SINTERSTORE: This command is equal to SINTER, but instead of returning the resulting set, it is stored in destination.
+    SUNION: Returns the members of the set resulting from the union of all the given sets.
+    SUNIONSTORE: This command is equal to SUNION, but instead of returning the resulting set, it is stored in destination.
+    SRANDMEMBER: When called with just the key argument, return a random element from the set value stored at key.
     
