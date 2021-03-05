@@ -77,4 +77,21 @@ Understanding Shutdown Command
     set 2 bye 
     shutdown save 
     shutdown nosave
-    
+Some more commands
+    RANDOMKEY: Get any key from database
+    keys *: show all keys we have 
+    rename: change key name 
+        RENAME 1 4
+    If rename to new key but that new key is existing, it will replace existing key and existing will no longer 
+    Can only rename key only when our key does not exist.
+        set name "bob"
+        set lname "rob"
+        renamenx name lname
+        renamenx name fname
+        unlink: Very similar to del command. unlink command remove our key asynchronously, It does remove key by blocking 
+            the current thread, it performs its job in another thread.
+            It is very useful sometimes when we want to delete large number of keys, at that time if using del command, it will
+            eat our performance and can slow our Redis database
+    type: check what type of value is stored in key
+        type lname
+        
