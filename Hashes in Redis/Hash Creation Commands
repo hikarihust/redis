@@ -1,0 +1,12 @@
+hset student name Rob 
+hget student name
+hset student age 22
+hget student age
+hset student name Bob
+hget student name
+
+
+hmset student height 5.8 weight 60
+hget student height
+hgetall student
+hmget student name age

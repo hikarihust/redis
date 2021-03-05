@@ -217,4 +217,12 @@ Wrapping up List Commands
 Hashes Introduction
     Redis Hashes are maps between string fields and string values
     They are the perfect data type to represent objects(e.g: a user with number of field like name, surname, age)
+Hash Creation Commands
+    hset: Sets field in the hash stored at key to value. If field already exists in the hash, it is overwritten.
+    hget: Returns the value associated with field in the hash stored at key.
+    hmset: Set Multiple values.
+    hgetall: Returns all fields and values of the hash stored at key.
+        First is field then its value again the field then its value
+    hmget: Returns the values associated with the specified fields in the hash stored at key.
+        Can use it to fetch values from multiple fields at a time
     
