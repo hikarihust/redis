@@ -108,3 +108,44 @@ Dump & Restore in Redis
         get fname
             -> "Bob"
     
+    ====================================================================
+
+                Strings in  Redis
+    
+Getting Started with Strings
+    set 1 abc
+    type: check type value of key 
+        type 1 -> string
+    set 2 "hello"
+    type 2
+        -> will also be string
+    nx option: Using nx option we only set the key if it does not already exist, it means that we 
+        can not create a key if it is already existing in Redis database
+        set 1 hello nx
+            Because 1 key is existing so we can not set
+    xx option: Only set the key if it already exists, it just opposite of nx option
+        set 5 hello xx
+            The key 5 is not yet created in Redis database, so we can not set
+        set 1 hello xx
+            Can set, key 1 will have value is "hello"
+    append: Using append command to append a value to string
+        set greeting Hello
+        append greeting World
+    incr: Using to increment a value. In Redis we can perform some operations on string type, in many of database it is imposible
+        set score 1
+        incr score
+        get score -> its value will become "2"
+    incrby: We can specify which number we want to increment our value
+        incrby score 5
+            -> score will have value is 7
+    decr: Decrement value by 1
+        decr score
+        -> score will have value is 6
+    decrby: We can specify which number we want to Decrement our value
+        decrby score 5
+            -> score will have value is 1
+    incrbyfloat: We can store float value also in we string and also perform some operations
+        set num 1.0 (type is string)
+        incrbyfloat num 1.0
+            -> num will have value is 2
+    
