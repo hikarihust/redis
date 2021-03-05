@@ -187,3 +187,15 @@ Wrapping up String Section
     ====================================================================
 
                 List in Redis
+
+Working with List in Redis
+    lpush: Insert all the specified values at the head of the list stored at key
+    lrange: Returns the specified elements of the list stored at key
+    rpush: Insert all the specified values at the tail of the list stored at key.
+    rpushx: Inserts value at the tail of the list stored at key, only if key already exists and holds a list.
+        rpushx fruitsss mango
+        if fruitsss not already exists, it will be not inserted
+    lpushx: Inserts value at the head of the list stored at key, only if key already exists and holds a list.
+    rpop: Removes and returns the last element of the list stored at key(Delete element from the right of list)
+    lpop: Removes and returns the first element of the list stored at key
+    

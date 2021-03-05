@@ -1,0 +1,13 @@
+lpush fruit mango 
+lpush fruit banana watermelon
+lpush fruit grape
+lrange fruit 0 -1
+
+rpush fruit pineapple
+
+rpushx fruitsss mango
+rpushx fruit orange
+lpushx fruit peach 
+
+rpop fruit
+lpop fruit
