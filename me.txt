@@ -255,4 +255,16 @@ About Sets in Redis
     It is possible to add, remove, and test for existence of members 
     O(1) constant time regardless of the number of elements contained inside the Set 
     Can do unions, intersections, difference of sets in very short time
+    Sets are unorganized they are unordered in this way so there is no particular order 
+        in which our data be stored
+Sets basic commands
+    SADD: Add the specified members to the set stored at key.
+    SMEMBERS: Returns all the members of the set value stored at key.
+    SISMEMBER: Returns if member is a member of the set stored at key.
+        Use to check particular member existence in pur set and if it does not exist we will get 0
+        and if that member exist we will get 1
+    SCARD: Returns the set cardinality (number of elements) of the set stored at key.
+    SMOVE: Move member from the set at source to the set at destination.
+    SPOP: Removes and returns one or more random elements from the set value store at key.
+    SREM: Remove the specified members from the set stored at key.
     

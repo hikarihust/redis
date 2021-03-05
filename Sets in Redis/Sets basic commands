@@ -1,0 +1,24 @@
+sadd party Bob Rob Robert Sam 
+SMEMBERS party
+
+SISMEMBER party bob
+SISMEMBER party Bob
+SISMEMBER party Rob
+
+SCARD party
+
+sadd picnic ray max
+SMEMBERS picnic
+SMOVE party picnic Rob
+SMEMBERS picnic
+SMEMBERS party
+SMOVE party picnic abc
+
+SPOP party 2
+SMEMBERS party
+SPOP picnic 1
+SMEMBERS picnic
+
+sadd party Rob
+SREM party Rob Sam
+SMEMBERS party
