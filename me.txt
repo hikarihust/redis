@@ -225,4 +225,24 @@ Hash Creation Commands
         First is field then its value again the field then its value
     hmget: Returns the values associated with the specified fields in the hash stored at key.
         Can use it to fetch values from multiple fields at a time
+More on Hashes Commands
+    HVALS: Returns all values in the hash stored at key.
+    HKEYS: Returns all field names in the hash stored at key.
+    HEXISTS: Returns if field is an existing field in the hash stored at key.
+        Check particular field exist in our hash or not
+        If not exist, return 0
+        If exist, return 1
+    HLEN: Returns the number of fields contained in the hash stored at key.
+    HKEYS: Returns all field names in the hash stored at key.
+    HSETNX: Sets field in the hash stored at key to value, only if field does not yet exist.
+    HDEL: Removes the specified fields from the hash stored at key.
+    HINCRBY: Increments the number stored at field in the hash stored at key by increment.
+        HINCRBY command not designed for float numbers
+        HINCRBY student height 1
+            -> (error) ERR hash value is not an integer
+        This command is designed to work on an integer
+    HINCRBYFLOAT: Increment the specified field of a hash stored at key, and representing a floating point number, 
+        by the specified increment.
+        HINCRBYFLOAT can use to increment any type of number like integer or float
+    HSTRLEN: Returns the string length of the value associated with field in the hash stored at key.
     

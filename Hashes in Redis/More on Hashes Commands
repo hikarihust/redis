@@ -1,0 +1,28 @@
+hvals student 
+hkeys student
+
+hexists student name
+hexists student abcd
+
+hlen student
+hkeys student
+
+hsetnx student hobby football
+hsetnx student hobby cricket
+hvals student
+
+hdel student weight 
+
+HINCRBY student height 1
+hset student goals 2
+HINCRBY student goals 1
+
+
+HINCRBYFLOAT student height 1
+HINCRBYFLOAT student goals 1
+HINCRBYFLOAT student height 0.2
+
+
+HSTRLEN student name
+hset student name Robert
+HSTRLEN student name
