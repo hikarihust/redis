@@ -1,0 +1,35 @@
+zadd students 1 Rob 2 Alex 3 John 4 Bob
+ZRANGE students 0 -1 WITHSCORES
+ZRANGEBYSCORE students 0 2
+ZRANGEBYSCORE students 4 5
+
+zadd name 1 Rob 1 Bob 1 Alex 1 Sam 1 Andrew
+ZRANGE name 0 -1
+
+ZRANGEBYLEX name - +
+ZRANGEBYLEX name (Alex (Rob
+ZRANGEBYLEX name (Alex [Rob
+ZRANGEBYLEX name [Alex [Rob
+
+ZRANGE name 0 -1
+ZLEXCOUNT name - +
+ZLEXCOUNT name (Alex [Rob
+ZLEXCOUNT name [Alex [Rob
+
+ZREVRANGEBYLEX name + -
+ZREVRANGEBYLEX name [Rob [Alex
+
+ZRANGE name 0 -1
+ZREMRANGEBYLEX name (Alex [Andrew
+ZRANGE name 0 -1
+ZREMRANGEBYLEX name [Alex [Rob
+ZRANGE name 0 -1
+
+zadd name 1 Rob 1 Alex 1 Andrew 1 Bob
+ZRANGE name 0 -1
+ZREMRANGEBYRANK name 0 1
+ZRANGE name 0 -1
+
+ZRANGE name 0 -1
+ZREMRANGEBYSCORE name 1 1
+ZRANGE name 0 -1
