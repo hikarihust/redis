@@ -1,0 +1,33 @@
+multi
+set bank1 5000
+set bank2 6000
+exec
+get bank1
+get bank2
+
+
+multi
+incrby bank1 500
+incrby bank2 200
+exec
+
+
+multi
+incrby bank1 100
+incrbyy bank1 100
+exec
+
+
+multi
+get bank1
+get bank2
+incrby bank1 100
+zadd bank2 1 1000
+exec
+
+
+multi
+get bank2
+incrby bank2 1000
+zadd bank2 1 100
+exec
