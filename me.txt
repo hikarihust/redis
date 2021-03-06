@@ -431,4 +431,10 @@ About Publish/ Subscribe
         Rather, published messages are characterized into channels, without knowledge of what(if any) Subscribers there may be 
         Subscribers express interest in one or more channels, and only recieve messages that are of interest, without knowledge of 
             what(if any) publishers there are
-     
+Publish and Subscribe Commands
+    publish channel message
+        If someone subcribe channel later on after the message is sent, this message is discarded, this message will not be sent to 
+            new subcriber
+    subscribe channel
+        Ctrl + C: Unsubcribe
+    

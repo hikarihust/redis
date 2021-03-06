@@ -1,0 +1,11 @@
+Terminal 1: publish ch1 Hello
+            --> output 0, Because there are no current subcriber of this channel ch1
+Terminal 2: subscribe ch1
+Terminal 1: publish ch1 Hello
+            --> output 1, which means that message is sent to how many clients
+Terminal 2: Ctrl + C
+
+
+Terminal 2: subscribe news tech 
+Terminal 1: publish news "100 statups in US"
+Terminal 1: publish tech "Why to Learn Redis"
