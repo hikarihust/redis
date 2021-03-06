@@ -387,10 +387,34 @@ About Transaction
     Either all of the commands or none are processed, so a Redis Transaction is also atomic 
     If a client passed invalid command to the server in the context of a Transaction then none of the operations are performed 
 Working with multi and exec
+    multi: Start Transaction
+    exec: Execute all of the commands that are currently in queue of our transaction
     Errors inside a transaction:
         During a transaction it is possible to encounter error
         A command may fail to be queued, so there may be an error before EXEC is called
     For instance the command may be syntactically wrong(wrong number of arguments, wrong command name...)
     A command may fail after EXEC is called, for instance since we performed an operation against a key with the wrong value(like calling a list
         operation against a string value)
+Understanding Unwatch
+    discard: This command can abort a transaction
+    watch: Check and set behavior to redis transaction. Can monitor our keys to detect changes against them and if the watched key is modified
+        before the exec command, the whole transaction aborts.
+        It means watch check and set behaviorand if there is any change in key outside the transaction then watch restrict exec to execute, watch
+            will not allow run the transaction
+        watch
+        ↓
+        multi
+        ↓
+        exec
+    unwatch: Telling redis that we do not want to monitor watched key 
+        unwatch command does not need any argument, it flush all watched keys. Can not unwatch particular key
+        watch
+        ↓
+        ~ some batch command
+        ↓
+        unwatch
+        ↓
+        multi
+        ↓
+        exec
     

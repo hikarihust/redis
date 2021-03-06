@@ -1,0 +1,75 @@
+set bank1 1000
+set bank2 2000
+
+multi
+incrby bank1 100
+incrby bank2 100
+discard
+exec
+get bank1
+get bank2
+
+multi
+get bank1
+get bank2
+incrby bank1 100
+exec
+
+
+watch bank1
+multi
+incrby bank1 100
+exec
+--> There is no difference
+
+
+watch bank1
+incrby bank1 100
+get bank1 --> output 1300
+multi
+incrby bank1 100
+exec
+--> output nil, It means that this command is not executed
+get bank1 --> output 1300
+
+
+Terminal 1: watch bank1
+Terminal 2: incrby bank1 100
+            --> output 1400
+Terminal 1: multi
+Terminal 1: incrby bank1 100
+Terminal 1: exec
+            --> output nil, It means that this command is not executed
+Terminal 1: get bank1
+            --> output 1400
+
+
+Terminal 1: watch bank1
+Terminal 2: incrby bank1 100
+            --> output 1500
+Terminal 1: unwatch
+Terminal 1: multi
+Terminal 1: incrby bank1 100
+Terminal 1: exec
+            --> output 1600, It means that our unwatch command worked
+
+
+Terminal 1: watch bank1
+Terminal 2: incrby bank1 100
+            --> output 1700
+Terminal 1: multi
+Terminal 1: unwatch
+Terminal 1: incrby bank1 100
+Terminal 1: exec
+            --> output nil, Because we have already changed in Terminal 2 before start transaction, by this reason 
+                transaction is totally aborted
+
+
+Terminal 1: watch bank1
+Terminal 2: incrby bank1 100
+            --> output 1800
+Terminal 2: unwatch
+Terminal 1: multi
+Terminal 1: incrby bank1 100
+Terminal 1: exec
+            --> output nil, It means can stop monitor of the key that is monitored by other Terminal
