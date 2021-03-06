@@ -373,4 +373,17 @@ Wrapping up Sorted Sets Commands
     ZREMRANGEBYRANK: Removes all elements in the sorted set stored at key with rank between start and stop.
     ZREMRANGEBYSCORE: Removes all elements in the sorted set stored at key with a score between min and max (inclusive).
     ZREVRANGEBYSCORE: Apart from the reversed ordering, ZREVRANGEBYSCORE is similar to ZRANGEBYSCORE.
+
+    ====================================================================
+
+                Transactions
+
+About Transaction
+    A Transaction in Redis consists of a block of commands
+    MULTI, EXEC, DISCARD and WATCH are the foundation of Transactions in Redis
+    All the commands in a Transaction are serialized and executed sequentially
+    It can never happen that a request issued by another client is served in the middle of the execution of a Redis Transaction. This guarantees
+        that the commands executed as a single isolated operation.
+    Either all of the commands or none are processed, so a Redis Transaction is also atomic 
+    If a client passed invalid command to the server in the context of a Transaction then none of the operations are performed 
     
