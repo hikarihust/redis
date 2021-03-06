@@ -13,6 +13,14 @@ Installing Redis in Ubuntu
         set test "It's working!"
     exit 
         to back ubuntu user 
+
+    https://otodiginet.com/database/how-to-install-and-configure-redis-6-0-on-ubuntu-20-04-lts/
+    sudo add-apt-repository ppa:chris-lea/redis-server
+    sudo apt-get update
+    sudo apt-get install redis-server -y
+    redis-server --version
+    sudo systemctl restart redis-server.service
+    sudo systemctl status redis-server.service
     
     ====================================================================
 
@@ -313,4 +321,19 @@ Working with zadd command
             zadd name incr 2 Bob
                 score of Bob will be increment 2 
     ZRANGE: Returns the specified range of elements in the sorted set stored at key.
+Getting Started with basic commands
+    ZCARD: Returns the sorted set cardinality (number of elements) of the sorted set stored at key.
+    ZREM: Removes the specified members from the sorted set stored at key. Non existing members are ignored.
+    ZSCORE: Returns the score of member in the sorted set at key.
+    ZREVRANGE: Returns the specified range of elements in the sorted set stored at key. The elements are considered 
+        to be ordered from the highest to the lowest score.
+    ZRANK: Returns the rank of member in the sorted set stored at key, with the scores ordered from low to high. 
+        The rank (or index) is 0-based, which means that the member with the lowest score has rank 0.
+    ZREVRANK: Returns the rank of member in the sorted set stored at key, with the scores ordered from high to low. 
+        The rank (or index) is 0-based, which means that the member with the highest score has rank 0.
+    ZINCRBY: Increments the score of member in the sorted set stored at key by increment.
+    ZCOUNT: Returns the number of elements in the sorted set at key with a score between min and max.
+
+    ZPOPMAX: Removes and returns up to count members with the highest scores in the sorted set stored at key.
+    ZPOPMIN: Removes and returns up to count members with the lowest scores in the sorted set stored at key.
     

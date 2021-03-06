@@ -1,0 +1,37 @@
+ZCARD name
+
+ZREM name Max Bob
+ZRANGE name 0 -1
+
+ZRANGE name 0 -1 WITHSCORES
+ZSCORE name Alex 
+ZSCORE name Rob
+
+ZREVRANGE name 0 -1 WITHSCORES
+
+ZRANK name Rob
+
+ZREVRANK name Alex
+ZREVRANK name Arthur
+
+ZINCRBY name 3 Alex
+ZRANGE name 0 -1 WITHSCORES
+ZINCRBY name 3 Alex
+ZRANGE name 0 -1 WITHSCORES
+
+ZRANGE name 0 -1 WITHSCORES
+ZCOUNT name 0 5
+ZCOUNT name 0 1
+ZCOUNT name -inf +inf
+
+ZRANGE name 0 -1 WITHSCORES
+ZPOPMAX name 2
+ZRANGE name 0 -1 WITHSCORES
+zadd name 5 James 7 Willian
+ZPOPMAX name 1
+
+
+ZPOPMIN name 1
+ZRANGE name 0 -1 WITHSCORES
+ZPOPMIN name 1
+ZRANGE name 0 -1 WITHSCORES
