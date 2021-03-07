@@ -451,3 +451,15 @@ Working with Patterned Subscription
             psubscribe ch[12e] -> can not check
             psubscribe ch1 -> can check
     
+    ====================================================================
+
+                Geospatial 
+
+About Geospatial
+    Redis uses a common strategy for managing geospatial objects. For each longitude and latitude pair, a Geospatial is computed
+    A Geospatial is a 52 bit integer value in Redis
+    GeoHash encodes positions in a short string of letters and didits
+    GeoHash is the compact structure for storage, but allows for efficient queries to be performed
+    Each GeoHash is stored in the named key. The data type of that key is a sorted set 
+    The GeoHash is stored as the score, and the name of the point is used as the value of the member
+    
