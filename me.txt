@@ -494,4 +494,22 @@ Working with GeoRadius and GeoDist
             STOREDIST: Can get the actual distance in score field by zrange ~ withscores command
     georadius: Have to specify longitude and latitude. Can not specify member name  
         georadius key longitude latitude radius m|km|ft|mi [WITHCOORD] [WITHDIST] [WITHHASH] [COUNT count] [ASC|DESC] [STORE key] [STOREDIST key]
+
+    ====================================================================
+
+                HyperLogLog 
+
+HyperLogLog Complete Guide
+    Unique items can be difficult to count. Usually this means storing every unique item then recalling this information somehow.
+    With Redis, this can be accomplished with by using a set however both the storage and time complexity of this with very large sets is 
+        prohibitive.
+    HyperLogLog provides a probabilistic alternative.
+    HyperLogLog keeps a counter of items that is incremented when new items are added that have not been previously added.
+    This provides a very low error rate when estimating the unique items(cardinality) of a set.
+    pfadd: 
+        pfadd key element [element ...]
+    pfcount
+        pfcount key [key ...]
+    pfmerge: Merge 2 HyperLogLog
+        pfmerge destkey sourcekey [sourcekey ...]
     

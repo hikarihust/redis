@@ -1,0 +1,16 @@
+pfadd website Alex Bob Alex Rob
+    --> output 1, because have changed
+pfadd website Bob
+    --> output 0, because Bob should not be counted twice
+pfcount website
+    --> output 3, because 3 unique are Alex Bob Rob
+pfadd website Max
+pfcount website
+
+
+
+pfadd reg Alex Rob Adam Joy
+pfcount reg
+pfmerge website reg
+pfcount website
+    --> output 6
