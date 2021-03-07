@@ -480,4 +480,18 @@ Introduction to GeoAdd and GeoHash
     geopos
         geopos key member [member ...]
         Get our latitude and longitude what basically we have stored inside our geospatial type
+Working with GeoRadius and GeoDist
+    geodist: This command can get approximate distance between two locations
+        geodist key member1 member2 [m|km|ft|mi]
+    georadiusbymember: This command can fetch out members on basic of radius, if any location that comes in that radius then that location
+            would be returned
+        georadiusbymember key member radius m|km|ft|mi [WITHCOORD] [WITHDIST] [WITHHASH] [COUNT count] [ASC|DESC] [STORE key] [STOREDIST key]
+            WITHCOORD: Can return longitude and latitude
+            WITHDIST: Can return distance
+            WITHHASH: Can return hash that is stored inside redis 
+            COUNT: How may results we want in output
+            STORE: Get the hash value by zrange ~ withscores command
+            STOREDIST: Can get the actual distance in score field by zrange ~ withscores command
+    georadius: Have to specify longitude and latitude. Can not specify member name  
+        georadius key longitude latitude radius m|km|ft|mi [WITHCOORD] [WITHDIST] [WITHHASH] [COUNT count] [ASC|DESC] [STORE key] [STOREDIST key]
     

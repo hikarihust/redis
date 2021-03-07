@@ -1,0 +1,39 @@
+geoadd geopoints -120.568864 47.042893 "Junction Road"
+geoadd geopoints -120.474217 46.974739 Park
+zrange geopoints 0 -1 withscores
+geodist geopoints Park Bank mi 
+geodist geopoints Park Bank km
+geodist geopoints "Junction Road" Park m
+
+
+
+georadiusbymember geopoints Park 10 mi WITHDIST
+geodist geopoints Park Bank mi 
+geodist geopoints Park "Junction Road" mi 
+
+georadiusbymember geopoints Bank 10 mi WITHDIST
+geodist geopoints Bank "Junction Road" mi 
+
+georadiusbymember geopoints Park 5 mi WITHDIST
+
+georadiusbymember geopoints Park 5 mi WITHCOORD
+geopos geopoints Bank
+geopos geopoints Park
+
+georadiusbymember geopoints Park 5 mi WITHHASH
+zrange geopoints 0 -1 withscores
+
+georadiusbymember geopoints Park 10 mi WITHDIST
+georadiusbymember geopoints Park 10 mi WITHDIST COUNT 1 DESC
+georadiusbymember geopoints Park 10 mi WITHDIST COUNT 2 ASC
+
+georadiusbymember geopoints Park 10 mi STORE c1
+zrange c1 0 -1 withscores
+
+georadiusbymember geopoints Park 10 mi STOREDIST c2 
+zrange c2 0 -1 withscores
+
+
+
+geopos geopoints Park
+georadius geopoints -120.47421544790267944 46.97473889585781137 8 mi WITHDIST
