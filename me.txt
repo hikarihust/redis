@@ -531,4 +531,10 @@ Prepare for Ubuntu 20.04
     (my_env): vi hello.py
         print("Hello, World!")
     (my_env): python hello.py
+Connecting to Redis Using Python
+    (my_env): pip3 install redis
+    (my_env): python first-example.py
+        --> Output b'Diwakar', We can see "b", it means that we have got output in bytes. When we are working with Redis using Python,
+            then we store data as bytes inside redis, and "b" when using python3
+    (my_env): python second-example.py
     
