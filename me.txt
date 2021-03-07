@@ -513,3 +513,22 @@ HyperLogLog Complete Guide
     pfmerge: Merge 2 HyperLogLog
         pfmerge destkey sourcekey [sourcekey ...]
     
+    ====================================================================
+
+                Redis with Python 
+
+Prepare for Ubuntu 20.04
+    https://www.digitalocean.com/community/tutorials/how-to-install-python-3-and-set-up-a-programming-environment-on-an-ubuntu-20-04-server
+    sudo apt update
+    sudo apt -y upgrade
+    python3 -V
+    sudo apt install -y python3-pip
+    sudo apt install -y build-essential libssl-dev libffi-dev python3-dev
+    sudo apt install -y python3-venv
+    python3 -m venv my_env
+    ls my_env
+    source my_env/bin/activate
+    (my_env): vi hello.py
+        print("Hello, World!")
+    (my_env): python hello.py
+    
