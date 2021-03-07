@@ -1,0 +1,6 @@
+geoadd geopoints -120.544046 46.995344 Bank
+zrange geopoints 0 -1 withscores
+
+geohash geopoints Bank
+
+geopos geopoints Bank

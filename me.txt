@@ -462,4 +462,22 @@ About Geospatial
     GeoHash is the compact structure for storage, but allows for efficient queries to be performed
     Each GeoHash is stored in the named key. The data type of that key is a sorted set 
     The GeoHash is stored as the score, and the name of the point is used as the value of the member
+Introduction to GeoAdd and GeoHash
+    geoadd: 
+        Adds the specified geospatial items(latitude, longitude, name) to specified key
+        Data is stored into the key as a sorted set
+        There are limits to the coordinates that can be indexed: areas very near to the poles are not indexable
+        Valid longitude are from -180 to 180 degrees
+        Valid latitudes are from -85.05112878 to 85.05112878
+        geoadd key longitude latitude member [longitude latitude member ...]
+            member: Member name
+    geohash
+        geohash key member [member ...]
+        http://geohash.org/
+            Using hash value of geohash to get exact location longitude and latitude      
+            http://geohash.org/c2672gnx8p0
+            -> 46.99534 -120.54405
+    geopos
+        geopos key member [member ...]
+        Get our latitude and longitude what basically we have stored inside our geospatial type
     
