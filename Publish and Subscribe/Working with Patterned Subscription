@@ -1,0 +1,29 @@
+Terminal 2: psubscribe ch* 
+Terminal 1: publish ch12 Hello 
+Terminal 1: publish Ih1231 Hello
+
+
+Terminal 2: psubscribe ch?
+Terminal 1: publish ch12 Hello 
+Terminal 1: publish ch1 Hello 
+
+
+Terminal 2: psubscribe ch[12e]
+Terminal 1: publish ch1 Hello
+Terminal 1: publish ch12 Hello
+Terminal 1: publish ch2 Hello
+Terminal 1: publish che Hello
+
+
+Terminal 2: psubscribe ch[12e]
+Terminal 1: pubsub Numsub ch1
+            --> output 0, It means that there zero subcriber to this channel now 
+Terminal 3: subscribe ch1
+Terminal 1: pubsub Numsub ch1
+            --> output 1, Because this time we have subcribed(Terminal 3 client)
+Terminal 1: pubsub Numpat
+            --> output 1, Because Terminal 2 psubscribe ch[12e]
+Terminal 3: exit and login redis server again
+Terminal 3: psubscribe ch*
+Terminal 1: pubsub Numpat
+            --> output 2, Because Terminal 2 psubscribe ch[12e] and Terminal 3 psubscribe ch*

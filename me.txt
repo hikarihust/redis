@@ -437,4 +437,17 @@ Publish and Subscribe Commands
             new subcriber
     subscribe channel
         Ctrl + C: Unsubcribe
+Working with Patterned Subscription
+    psubscribe pattern: Give pattern 
+        ch*: We can recieve any message who start which ch channel(ch12, ch1314 and so on)
+        ch?: We can replace any single character and it does not mean that multiple characters can be replaced
+            message from ch1 channel is can recieve, message from ch12 channel is can not recieve
+        ch[12e]: If any of the character matches in brackets like "1", "2", "e" allowing message to be sent
+            message from also ch1 or ch2 or che channels is recieved
+    pubsub subcommand: This command can do some administration tasks, pubsub command has subcommand command, using subcommand can check 
+        out number of subcribers, can check out number of patterned subscriptions 
+        Numsub(subcommand): Can check out number of subcribers for particular channel. It does check for number of subcribers for a 
+            patterned subscription
+            psubscribe ch[12e] -> can not check
+            psubscribe ch1 -> can check
     
