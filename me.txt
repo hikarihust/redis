@@ -537,4 +537,10 @@ Connecting to Redis Using Python
         --> Output b'Diwakar', We can see "b", it means that we have got output in bytes. When we are working with Redis using Python,
             then we store data as bytes inside redis, and "b" when using python3
     (my_env): python second-example.py
+Redis Project Setup
+    r.flushdb(): This command is actually used to delete all of keys inside redis. This should not be used inside production environment.
+        In development time, we need to refresh our database a lot of time so it is very cool option to do it.
+    python db.py
+    redis-cli
+    hgetall shirt:1
     
