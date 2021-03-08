@@ -543,4 +543,12 @@ Redis Project Setup
     python db.py
     redis-cli
     hgetall shirt:1
+Pipeline in Redis
+    A code without redis pipelines, when we have bunch of commands, when execute these commands. Each command is going to hit on the database.
+        If we have a thousand commands, we are going to hit our database thousand times, this is not good because every time we hit our database,
+        there is some latency involved. There is some cost involved and that is not good to hit our database at thousand times.
+    Pipeline, we can group related commands together, our all of commands in group will be going to hit database only once
+    python db.py
+    redis-cli
+    hgetall shirt:1
     
