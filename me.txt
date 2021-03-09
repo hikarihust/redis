@@ -579,4 +579,13 @@ Using Scan in Redis
 Implementing our Mini Shirt Store
     (my_env): python db.py
     (my_env): python main.py
+Implementing Buy Item
+    keys *
+    hgetall shirt:3
+    (my_env): python main.py
+    hgetall shirt:3
+    (my_env): python main.py
+    (my_env): python main.py
+    (my_env): python main.py
+    (my_env): python db.py
     
