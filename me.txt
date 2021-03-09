@@ -588,4 +588,17 @@ Implementing Buy Item
     (my_env): python main.py
     (my_env): python main.py
     (my_env): python db.py
+Final Implementations:- Transactions, Watch and Unwatch, Exception Handling
+    (my_env): python main.py
+        -> No shirt available in our database so we get exception
+    (my_env): python db.py
+    (my_env): python main.py
+    hgetall shirt:3
+    (my_env): python main.py
+    hgetall shirt:3
+    What if there are two users who want to buy a shirt but there is only 1 shirt left in the stock 
+        (my_env): python db.py -> Reset database "quantity": "1" in db
+        Terminal 1: (my_env): python main.py
+        Terminal 2: (my_env): python p2.py
+    Result is in Terminal 2 it is normal end. In Terminal 1 we get "WARNING:root:Error in watch, retrying"
     
