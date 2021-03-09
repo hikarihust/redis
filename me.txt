@@ -576,4 +576,7 @@ Using Scan in Redis
     Call until the returned cursor is 0, the server signaled to the caller that the iteration finished, and the collection was completely 
         explored. Starting an iteration with a cursor value of 0, and calling SCAN until the returned cursor is 0 again is called a 
         full iteration.
+Implementing our Mini Shirt Store
+    (my_env): python db.py
+    (my_env): python main.py
     
