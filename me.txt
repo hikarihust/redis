@@ -601,4 +601,20 @@ Final Implementations:- Transactions, Watch and Unwatch, Exception Handling
         Terminal 1: (my_env): python main.py
         Terminal 2: (my_env): python p2.py
     Result is in Terminal 2 it is normal end. In Terminal 1 we get "WARNING:root:Error in watch, retrying"
+
+    ====================================================================
+
+                Redis Streams
+
+About Redis Streams
+    Redis Streams: 
+        It is a data structure
+        It acts like an append only log
+        Each entry in a stream is structured as a set of key-value pairs
+        Every stream has unique ids. By default, ids are time prefix 
+        Streams can be consumed by and processed by multiple distinct sets of consumers known as consumer groups
+    Common Use Case 
+        IOT and Artificial Intelligence to user activity monitoring, fraud detection, and FinTech
+        They all collect and process high volumes of data, which arrive at high velocities
+        After processing this data, these technologies then deliver them to all the appropriate consumers of data
     
