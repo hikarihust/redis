@@ -551,4 +551,29 @@ Pipeline in Redis
     python db.py
     redis-cli
     hgetall shirt:1
+Using Scan in Redis
+    (my_env): python create-key.py
+    redis-cli
+    keys *
+    When we use keys * or pattern to fetch all of the keys from our database, we specify that here is a blocking operation. It means that it will 
+        block our database and it will waste our resources. So this is not the greate way to deal with things inside production.
+    Inside production environment, we should never user keys * command, and specially not when we have a verylarge database. Because if we use 
+        this command on a very large database, then it block our database for a long time and it is not good.
+    When we write scan, we are telling our redis we want to scan over our keys.
+    SCAN is a cursor based iterator. This means that at every call of the command, the server returns an updated cursor that the user needs 
+        to use as the cursor argument in the next call.
+    An iteration starts when the cursor is set to 0, and terminates when the cursor returned by the server is 0
+    Command:
+        scan cursor [MATCH pattern] [COUNT count] [TYPE type]
+        Ex: scan 0 match check*
+            This command just telling to fetch all of the keys that starts with check and we just want to get all the data.
+        scan 1 match check*
+        scan 11 match check*
+    In the example above, the first call uses zero as a cursor, to start the iteration. The second call uses the cursor returned by the 
+        previous call as the first element of the reply, that is, 11.
+    The SCAN return value is an array of two values: the first value is the new cursor to use in the next call, the second 
+        value is an array of elements.
+    Call until the returned cursor is 0, the server signaled to the caller that the iteration finished, and the collection was completely 
+        explored. Starting an iteration with a cursor value of 0, and calling SCAN until the returned cursor is 0 again is called a 
+        full iteration.
     
