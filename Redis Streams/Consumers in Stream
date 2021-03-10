@@ -1,0 +1,7 @@
+xread COUNT 3 STREAMS numbers 0-0
+xread COUNT 3 STREAMS numbers 0
+xread COUNT 1 STREAMS numbers 1615368026858-0
+
+
+xadd abc * name Dev
+xread Count 1 STREAMS numbers abc 0-0 0-0

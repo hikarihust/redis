@@ -653,4 +653,12 @@ Range Queries with Python
     How can work with ranges and how can process data in chunks
     (my_env): python range.py
         71~100 = 70*30 + 15*31 = 2565
+Consumers in Stream
+    xread: xread [COUNT count] [BLOCK milliseconds] STREAMS key [key ...] id [id ...]
+        xread does not use "-" to satrt and "+" to end, it is only xrange. We have to provide the message ID in xread
+    A little bit about the difference between xread and xrange:
+        xrange are inclusive ranges, it means that the message ID we provide to xrange would be included in output, but xread works differently.
+            xread expect we to provide the last message id and it will give us a reply greater than the message id provided
+    (my_env): python xread.py
+        output: 2565
     
