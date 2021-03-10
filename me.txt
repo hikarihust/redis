@@ -617,4 +617,13 @@ About Redis Streams
         IOT and Artificial Intelligence to user activity monitoring, fraud detection, and FinTech
         They all collect and process high volumes of data, which arrive at high velocities
         After processing this data, these technologies then deliver them to all the appropriate consumers of data
+Redis Stream Producer
+    xadd: add data to stream
+        xadd key ID field value [field value ...]
+        ID: Is actually unique identify, when Id is inputed bt "*"  it meaning that we want to server automatically 
+            generate id value for us
+        If we want to give the partial message ID, meaning we do not want to give internal sequence.
+            It is automatically assign the internal sequence as zero
+    xrange: Access data   
+        xrange key start end [COUNT count]
     

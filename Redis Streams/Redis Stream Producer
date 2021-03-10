@@ -1,0 +1,38 @@
+xadd temprature * temp_f 43.7 location_id 3020 temp_f 59.6 location_id 2050
+        Server actually replying automatically generated message id. This message id contain 2 parts separated by "-"
+            1615343888653-0
+        The first part is actually a millisecond resolution timestamp which is an unsigned 64 bit integer
+        The second part of the message. it is an internal sequence that provides some millisecond resolution because it is 
+            possible for multiple messages to be added inside the span of single message. So let's say if we added 100 messages
+            in one millisecond, then it will increase
+xrange temprature - +
+xadd temprature * temp_f 50.7 location_id 1020 temp_f 29.6 location_id 4050
+xrange temprature - +
+
+
+10 xadd temprature * temp_f 50.7 location_id 1020 temp_f 29.6 location_id 4050
+        This command will be executed ten times, it is possible that when we are going to execute this command 10 times, some of
+            data is actually added at a particular millisecond as well
+xrange temprature - +
+xrange temprature 1615343888653-0 1615344802216-8
+
+
+xadd manual 101-1 foo bar
+        generate message IDs on our own 
+xrange manual - +
+xadd manual 100-1 foo bar
+        If we try to add data at a lower message ID(100 is lower 101), that is not possible. We have to generate message ID greater 
+            than previousone
+xadd manual 102-1 foo bar
+xadd manual 102-2 foo bar
+
+
+del manual
+
+
+xadd manual 101 foo bar
+        When we just do not provide the second part of the message, it is automatically assign the internal sequence as zero
+xadd manual 101 foo bar
+        If we want to try again, it is can not because 101 already have 101
+xadd manual 102 foo bar
+xadd manual 102-1 foo bar
