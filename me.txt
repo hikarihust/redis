@@ -640,4 +640,13 @@ Capping and Trimming Stream
     xtrim: When xtrim, message that trimed will be lost forever
         xtrim key MAXLEN [~] count
         MAXLEN: How many elements want to keep in stream
+Range Queries in Stream
+    xrange: xrange key start end [COUNT count]
+        Using this command start can be "-", it means that we to go from beginning. Instead of minus we can do zero, zero is a partial
+            message that we are specifying it is a timestamp. When we say start from zero, it means that we actually want to process our stream
+            from beginning. So can be replacement for the minus by zero
+        Count: This option say that how many results we want at that time  
+    xrevrange: xrevrange key end start [COUNT count]
+        This command is absolutely similar to zrange command, the difference is it process in the opposite order. So it is going to process the 
+            messages from the oldest
     

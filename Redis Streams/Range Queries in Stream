@@ -1,0 +1,11 @@
+xrange numbers - +
+xrange numbers 0 +
+xrange numbers 0 + COUNT 5
+xrange numbers 1615368026859-1 + COUNT 5
+
+
+xrevrange numbers + - count 5
+
+
+xrange numbers - + count 10
+xrevrange numbers 1615368026860-1 1615368026857-1 
