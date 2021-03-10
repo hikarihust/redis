@@ -626,4 +626,18 @@ Redis Stream Producer
             It is automatically assign the internal sequence as zero
     xrange: Access data   
         xrange key start end [COUNT count]
+Capping and Trimming Stream
+    xlen: Fetch out the length of a stream, how many Ids our stream storing
+        xlen key
+        Return 0 if key is not there in database. So it is not is good idea to use this command to check whether a stream exists or not.
+        Should use to see how many elements stream currently storing
+    xdel: Remove an element from stream
+        xdel key ID [ID ...]
+    exists: Check whether key exists in database or not
+        exists key [key ...]    
+    source my_env/bin/activate
+    (my_env): python producer1.py
+    xtrim: When xtrim, message that trimed will be lost forever
+        xtrim key MAXLEN [~] count
+        MAXLEN: How many elements want to keep in stream
     

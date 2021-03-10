@@ -1,0 +1,25 @@
+xadd num * n 1 n 2
+xadd num * n 3 n 4
+xadd num * n 5 n 6
+xlen num
+xrange num - +
+
+
+xlen not_exist
+    Result is zero, it mean that the length of this streamis zero or it does not exist
+
+
+xadd mystream 1 n 1
+xlen mystream
+xdel mystream 1
+xlen mystream
+exists mystream
+exists abc
+
+
+source my_env/bin/activate
+(my_env): python producer1.py
+xrange numbers - +
+xtrim numbers MAXLEN 30
+        We will keep 30 latest element are 30 latest message ids im stream
+xrange numbers - +
