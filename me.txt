@@ -649,4 +649,8 @@ Range Queries in Stream
     xrevrange: xrevrange key end start [COUNT count]
         This command is absolutely similar to zrange command, the difference is it process in the opposite order. So it is going to process the 
             messages from the oldest
+Range Queries with Python
+    How can work with ranges and how can process data in chunks
+    (my_env): python range.py
+        71~100 = 70*30 + 15*31 = 2565
     
