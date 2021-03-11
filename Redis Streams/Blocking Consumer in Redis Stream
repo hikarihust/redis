@@ -1,0 +1,37 @@
+xrevrange numbers + - COUNT 2
+        1615368026870-0
+        1615368026869-1
+xread COUNT 1 BLOCK 1000 STREAMS numbers 1615368026869-1
+        Saying that wait for one second if there is a new message, just process that process. If there 
+            is no message, then just do a timeout. So there is already a new message after that so it will 
+            essential not wait
+
+
+Terminal 1: xread COUNT 1 BLOCK 1000 STREAMS numbers 1615368026870-0
+        No other new message that have added after 1615368026870-0. Waiting for one second for the new messages
+            And if the messages are not arrived in the one second, then our consumer will timeout
+Terminal 1: xread COUNT 1 BLOCK 0 STREAMS numbers 1615368026870-0
+            0: Zero is meaning we want to block forever
+Terminal 2: xadd numbers * n 101
+            Add new message and block in Terminal 1 will be released
+
+
+Terminal 1: xread COUNT 1 BLOCK 0 STREAMS numbers $
+            $: It is not possible every time to know the last message, so specifya messageID we can specify $. This
+                $ is a special symbol which tells us to use the last message that it has. We should use this symbol
+                only once. It is possible that at a moment of time we have multiple messages added into stream, in that 
+                case we have to ensure that no messages are skipped over. We should use message ID return by dollar 
+                symbol in subsequent call.(↓)
+Terminal 2: xadd numbers * n 102
+Terminal 1: xread COUNT 1 BLOCK 0 STREAMS numbers 1615476812676-0
+Terminal 2: xadd numbers * n 103
+
+
+Terminal 1: xread COUNT 3 BLOCK 0 STREAMS numbers $
+            In this case COUNT with 3
+            Result is we have just got one message Id in reply and consumer will be unblock, result is the first one of six
+                even we use Count 3.
+            That is why it is necessary to use specify message id in subsequent calls rather than using $ every time, we will 
+                miss other message id in our processing ↓
+Terminal 2: 6 xadd numbers * n 104
+            This command will be executed 6 times

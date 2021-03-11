@@ -661,4 +661,9 @@ Consumers in Stream
             xread expect we to provide the last message id and it will give us a reply greater than the message id provided
     (my_env): python xread.py
         output: 2565
+Blocking Consumer in Redis Stream
+    xread [COUNT count] [BLOCK milliseconds] STREAMS key [key ...] id [id ...]
+    Blocking operation supported by Redis streams, Block operation that we have inside the streams is essentially helpful when we waiting for
+        the new messages that arriving to our stream. So block operationis already available with our extra command and we can wait for 
+            essentially for new messages.
     
