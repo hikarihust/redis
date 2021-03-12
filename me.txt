@@ -666,4 +666,17 @@ Blocking Consumer in Redis Stream
     Blocking operation supported by Redis streams, Block operation that we have inside the streams is essentially helpful when we waiting for
         the new messages that arriving to our stream. So block operationis already available with our extra command and we can wait for 
             essentially for new messages.
+Consumer Group in Redis Streams
+    Consumer groups basicallyget data from our stream, and each consumer group may be responsible to process a different subsetof data from our
+        data stream
+    In Consumer group, they will be consumer that are going to process our data inside ready stream and that will allow we for distributed processing
+        of data, each consumer group may be served with an exclusive subset of stream content. So we can do different kind of processing in each
+        consumer group
+    XGROUP: XGROUP [CREATE key groupname id-or-$] [SETID key groupname id-or-$] [DESTROY key groupname] [DELCONSUMER key group
+        Consumer groups basically get data from our stream, each consumer group may be reposible to process a different subset of data from
+            our data stream
+        id-or-$: The id that consumer group will start
+    xinfo: xinfo [CONSUMERS key groupname] [GROUPS key] [STREAM key] [HELP]
+        Gives we information about our consumer groups that we have created
+        It will basically tell me all of the consumer groups created over the stream
     

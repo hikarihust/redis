@@ -1,0 +1,21 @@
+del numbers
+XGROUP CREATE numbers group0 0
+        numbers stream is still does not exist because we deleted that
+XGROUP CREATE numbers group0 0 MKSTREAM
+        MKSTREAM: Subcommand which is an optional one, it will just create a stream if our stream does not exist and if our stream 
+            is already existing, it is going ignore this option
+keys *
+xrange numbers - +
+xadd numbers * n 1
+xadd numbers * n 2
+
+
+XGROUP CREATE numbers group1 $
+        $ symbol will automatically take the last created id ↑
+xrange numbers - + 
+xadd numbers * n 3
+xrange numbers - + 
+
+
+xinfo GROUPS numbers
+        It will basically tell me all of the consumer groups created over the stream which is numbers stream
