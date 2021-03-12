@@ -679,4 +679,16 @@ Consumer Group in Redis Streams
     xinfo: xinfo [CONSUMERS key groupname] [GROUPS key] [STREAM key] [HELP]
         Gives we information about our consumer groups that we have created
         It will basically tell me all of the consumer groups created over the stream
+Adding Consumers to Groups
+    Consumer inside a consumer group, each consumer group can have multiple consumers that are going to process our data after a consumer.
+    Consumer can join the group or leave as needed, when consumers join the group, they can access the stream content that is accessible to the
+        group to join and start processing messages.
+    All that the consumer need to know are just the name of the stream and the group that it wants to belong to. This means there is no need to
+        tell Redis beforehand about the comming and going of the consumers. Group are open to any consumer that wishes to join them. Just the 
+        consumer have to provide its own name
+    xgroup: xgroup [CREATE key groupname id-or-$] [SETID key groupname id-or-$] [DESTROY key groupname] [DELCONSUMER key groupname
+        DESTROY: delete group
+    xreadgroup: xreadgroup GROUP group consumer [COUNT count] [BLOCK milliseconds] [NOACK] STREAMS key [key ...] ID [ID ...]
+        Read data from group
+        Redis is always going to keep track of our messages that are supplied to a consumer
     

@@ -1,0 +1,19 @@
+xgroup DESTROY numbers group1
+xinfo Groups numbers
+xreadgroup GROUP group0 consumerA COUNT 1 Block 1000 STREAMS numbers >
+        >: Start reading inside this consumer, > meaning that is greater than any of the previously delivered ids
+            get from xinfo command ↑, so we have the next message from our stream
+xinfo GROUPS numbers
+        value of "last-delivered-id" updated and we can see the value of "consumers" is also updated. So Pending 
+            entry list is keep track of messages that we have asked by our consumers
+xreadgroup GROUP group0 consumerB COUNT 1 Block 1000 STREAMS numbers >
+xinfo groups numbers
+xreadgroup GROUP group0 consumerA COUNT 1 Block 1000 STREAMS numbers 0
+        0: Meaning that give me all of the messages from this consumer
+xreadgroup GROUP group0 consumerB COUNT 1 Block 1000 STREAMS numbers 0
+xinfo Consumers numbers group0
+        Give each individual consumers over here 
+        idle: Basically it is telling that when our last message was processed by this consumer     
+xreadgroup GROUP group0 consumerB COUNT 1 Block 1000 STREAMS numbers >
+        Add new message for consumerB
+xinfo Consumers numbers group0
