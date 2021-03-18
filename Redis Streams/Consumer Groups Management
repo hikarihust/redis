@@ -1,0 +1,23 @@
+xgroup Destroy numbers group0
+xgroup Destroy numbers group1
+
+
+xgroup Create numbers sum $
+xinfo groups numbers
+xgroup setid numbers sum 0
+        Set "last-delivered-id" value
+xinfo groups numbers
+
+
+xreadgroup Group sum consumerA COUNT 2 STREAMS numbers >
+xgroup DELCONSUMER numbers sum consumerA
+
+
+xgroup Create numbers average 0
+xreadgroup Group average A COUNT 1 STREAMS numbers >
+xpending numbers average 
+xpending numbers average - + 1
+xpending numbers average - + 1
+
+XCLAIM numbers average B 1000 1615528309892-0
+xinfo CONSUMERS numbers average

@@ -698,4 +698,9 @@ Acknowledging Messages
             will not count them as successfully acknowledged.
     xreadgroup GROUP group consumer [COUNT count] [BLOCK milliseconds] [NOACK] STREAMS key [key ...] ID [ID ...]
         NOACK: If there will be no Acknowledgement provided for this message that we are reading currently in 
+Consumer Groups Management
+    Something about administration command, it means that how to manage our redis stream
+    XGROUP: XGROUP [CREATE key groupname id-or-$] [SETID key groupname id-or-$] [DESTROY key groupname] [DELCONSUMER key group
+        DELCONSUMER: Delete a consumer, which is a part of a consumer group
+    xpending, XCLAIM: Using combination of these two commands, we can basically process the left messages behind by a consumer 
     
