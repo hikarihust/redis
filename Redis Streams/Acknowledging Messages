@@ -1,0 +1,23 @@
+xreadgroup Group group0 consumerA COUNT 1 Block 1000 STREAMS numbers 0
+xack numbers group0 1615528309892-0
+        reply 1
+xack numbers group0 1615528309892-0
+        reply 0, It means that we have successfully processed our message and we have acknowledged that.
+xadd numbers * n 4
+
+xinfo Consumers numbers group0
+xreadgroup Group group0 consumer79 COUNT 1 Block 1000 NOACK Streams numbers >
+        NOACK: Means that there will be no Acknowledgement provided for this message that we are reading currently
+            in our consumer79on group0
+xinfo Consumers numbers group0
+
+xgroup Destroy numbers group0
+xinfo groups numbers
+
+xgroup Create numbers group0 0
+xgroup Create numbers group1 0
+
+xreadgroup Group group0 consumerA COUNT 1 STREAMS numbers >
+xreadgroup Group group1 consumerB COUNT 1 STREAMS numbers >
+        >: Get the next message from our number stream, we can see that group0 start from 0(xgroup Create numbers group0 0)
+        When we have different consumer groups, each consumer group will process our stream indivisually

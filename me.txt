@@ -691,4 +691,11 @@ Adding Consumers to Groups
     xreadgroup: xreadgroup GROUP group consumer [COUNT count] [BLOCK milliseconds] [NOACK] STREAMS key [key ...] ID [ID ...]
         Read data from group
         Redis is always going to keep track of our messages that are supplied to a consumer
+Acknowledging Messages
+    xack: xack key group ID [ID ...]
+        The command returns the number of messages successfully acknowledged.
+        Certain message IDs may no longer be part of the PEL (for example because they have been already acknowledge), and XACK 
+            will not count them as successfully acknowledged.
+    xreadgroup GROUP group consumer [COUNT count] [BLOCK milliseconds] [NOACK] STREAMS key [key ...] ID [ID ...]
+        NOACK: If there will be no Acknowledgement provided for this message that we are reading currently in 
     
